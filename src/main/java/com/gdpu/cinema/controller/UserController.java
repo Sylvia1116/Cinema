@@ -34,4 +34,5 @@ public class UserController {
         JsonResult jsonResult = new JsonResult(user1);
         return jsonResult;
     }
+
 }
