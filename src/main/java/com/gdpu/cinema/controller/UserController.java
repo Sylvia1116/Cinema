@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * Created by Kevin on 16/9/22.
  */
@@ -34,5 +36,13 @@ public class UserController {
         JsonResult jsonResult = new JsonResult(user1);
         return jsonResult;
     }
-
+    @RequestMapping(value = "/selectUser", method = RequestMethod.GET)
+    public
+    String selectUser(HttpServletRequest request) {
+        User user1 = new User();
+        user1.setId("12");
+        user1.setMsg(userService.userLogin(user1));
+        request.setAttribute("user",user1);
+        return "show";
+    }
 }
